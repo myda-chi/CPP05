@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:24:24 by myda-chi          #+#    #+#             */
-/*   Updated: 2025/12/15 14:13:29 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:32:09 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,8 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
 {
     os << other.getName() << ", bureaucrat grade " << other.getGrade() <<std::endl;
     return os;
+}
+void Bureaucrat:: signForm(Form& form)
+{
+    form.beSigned(*this);
 }

@@ -4,8 +4,11 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include "Form.hpp"
 #define low 150
 #define high 1
+
+class Form;
 
 class Bureaucrat
 {
@@ -37,6 +40,7 @@ public:
         public:
             const char* what() const throw();
     };
+    void signForm(class Form& form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& other);
