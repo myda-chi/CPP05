@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:21:00 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 15:06:58 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:27:28 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyRequestForm", 72, 45), _target("default")
 {
-    std::cout << GREEN << " Default RobotomyRequestForm constructor called" << RESET << std::endl;
+    std::cout << " Default RobotomyRequestForm constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
     : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-    std::cout << GREEN << " Parameterized RobotomyRequestForm constructor called" << RESET << std::endl;
+    std::cout << " Parameterized RobotomyRequestForm constructor called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << GREEN << " RobotomyRequestForm destructor called" << RESET << std::endl;
+    std::cout << " RobotomyRequestForm destructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
     : AForm(other), _target(other._target)
 {
-    std::cout << GREEN << " Copy RobotomyRequestForm constructor called" << RESET << std::endl;
+    std::cout << " Copy RobotomyRequestForm constructor called" << std::endl;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
-    std::cout << GREEN << " RobotomyRequestForm assignment operator called" << RESET<< std::endl;
+    std::cout << " RobotomyRequestForm assignment operator called" << std::endl;
     AForm::operator=(other);
     return *this;
 }
@@ -47,11 +47,11 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
         throw AForm::GradeTooLowException();
     if (executor.getGrade() > getGradeToExecute())
         throw AForm::GradeTooLowException();
-    std::cout <<RED <<"Bzzzzzz... Vrrrrrr... *drilling noises*" << RESET << std::endl;
+    std::cout << "Bzzzzzz... Vrrrrrr... *drilling noises*" << std::endl;
     srand(time(0));
     if (rand() % 2 == 0)
-        std::cout << _target <<GREEN " has been robotomized successfully." << std::endl;
+        std::cout << _target << " has been robotomized successfully." << std::endl;
     else
-        std::cout << RED << "The robotomy on " << _target << " failed." << RESET << std::endl;
+        std::cout << "The robotomy on " << _target << " failed." << std::endl;
 }
 

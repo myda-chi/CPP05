@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:28:27 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 15:09:08 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:29:05 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("ShrubberyCreationForm", 145, 137), _target("default")
 {
-    std::cout <<GREEN << " Default ShrubberyCreationForm constructor called" << RESET << std::endl;
+    std::cout << " Default ShrubberyCreationForm constructor called" << std::endl;
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
     : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
-    std::cout << GREEN << " Parameterized ShrubberyCreationForm constructor called" << RESET << std::endl;
+    std::cout << " Parameterized ShrubberyCreationForm constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << GREEN << " ShrubberyCreationForm destructor called" << RESET << std::endl;
+    std::cout << " ShrubberyCreationForm destructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
     : AForm(other), _target(other._target)
 {
-    std::cout << GREEN << " Copy ShrubberyCreationForm constructor called" << RESET << std::endl;
+    std::cout << " Copy ShrubberyCreationForm constructor called" << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
-    std::cout << GREEN << " ShrubberyCreationForm assignment operator called" << RESET << std::endl;
+    std::cout << " ShrubberyCreationForm assignment operator called" << std::endl;
     AForm::operator=(other);
     return *this;
 }
@@ -52,7 +52,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     
     if (!outfile)
     {
-        std::cerr <<RED << "Error creating file: " << filename << std::endl;
+        std::cerr << "Error creating file: " << filename << std::endl;
         return;
     }
     
@@ -67,5 +67,5 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     outfile << "      // \\\\" << std::endl;
     
     outfile.close();
-    std::cout <<GREEN << "Shrubbery created in file: " << filename << std::endl;
+    std::cout << "Shrubbery created in file: " << filename << std::endl;
 }

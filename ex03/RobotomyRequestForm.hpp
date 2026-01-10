@@ -6,10 +6,6 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include <stdexcept>
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define YELLOW "\033[33m"
-#define RESET "\033[0m"
 
 class RobotomyRequestForm : public AForm
 {

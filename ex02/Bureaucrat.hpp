@@ -7,6 +7,11 @@
 #include "AForm.hpp"
 #define low 150
 #define high 1
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define YELLOW "\033[33m"
+#define RESET "\033[0m"
+#define CYAN "\033[36m"
 
 class AForm;
 

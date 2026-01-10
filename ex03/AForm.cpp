@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:53:22 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 15:10:29 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:12:51 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ AForm::AForm(): _name("name"), _isSigned(false), _gradeToExecute(150), _gradeToS
 }
 AForm::~AForm()
 {
-    std::cout <<GREEN << "AForm destructor called" << RESET << std::endl;
+    std::cout << "AForm destructor called" << std::endl;
 }   
 
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute): _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
@@ -32,11 +32,11 @@ AForm::AForm(const AForm& other)
     : _name(other._name), _isSigned(other._isSigned),
       _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
-    std::cout <<GREEN << "copy of AForm created." << RESET << std::endl;
+    std::cout << "copy of AForm created." << std::endl;
 }
 AForm& AForm::operator=(const AForm& other)
 {
-    std::cout <<GREEN << "AForm assignment operator called." << RESET << std::endl;
+    std::cout << "AForm assignment operator called." << std::endl;
     if (this != &other)
     {
         this->_isSigned = other._isSigned;

@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:24:24 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 15:21:02 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:59:36 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name)
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
+Bureaucrat::Bureaucrat (const Bureaucrat& other)
 {
     *this = other;
 }
@@ -69,26 +69,45 @@ void Bureaucrat::decrementGrade()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return RED "Grade too high!" RESET;
+    return "TooHighException";
 }
-
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return RED "Grade too low!" RESET;
+    return "TooLowException";
 }
 
-rm -f Bureaucrat
 Bureaucrat::~Bureaucrat()
 {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
 {
-    os << GREEN << other.getName() << RESET
-       << ", bureaucrat grade "
-       << YELLOW << other.getGrade() << RESET
-       << std::endl;
+    os << other.getName() << ", bureaucrat grade " << other.getGrade() <<std::endl;
     return os;
 }
 
-rm -f Bureaucrat
+void Bureaucrat::executeForm(class AForm& form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+void Bureaucrat::signForm(class AForm& form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->getName() << " signed " << form.getName() << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+

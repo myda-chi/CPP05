@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:17:34 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 15:03:47 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/07 16:20:44 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 25, 5), _target("default")
 {
-    std::cout << GREEN << " Default PresidentialPardonForm constructor called" << RESET << std::endl;
+    std::cout << " Default PresidentialPardonForm constructor called" << std::endl;
 }
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
     : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-    std::cout << GREEN << " Parameterized PresidentialPardonForm constructor called" << RESET << std::endl;
+    std::cout << " Parameterized PresidentialPardonForm constructor called" << std::endl;
 }
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << GREEN << " PresidentialPardonForm destructor called" << RESET << std::endl;
+    std::cout << " PresidentialPardonForm destructor called" << std::endl;
 }
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
     : AForm(other), _target(other._target)
 {
-    std::cout << GREEN << " Copy PresidentialPardonForm constructor called" << RESET << std::endl;
+    std::cout << " Copy PresidentialPardonForm constructor called" << std::endl;
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
-    std::cout << GREEN << " PresidentialPardonForm assignment operator called" << RESET << std::endl;
+    std::cout << " PresidentialPardonForm assignment operator called" << std::endl;
     AForm::operator=(other);
     return *this;
 }
@@ -43,5 +43,6 @@ void PresidentialPardonForm::execute(const Bureaucrat& executor) const
         throw AForm::GradeTooLowException();
     if (executor.getGrade() > getGradeToExecute())
         throw AForm::GradeTooLowException();
-    std::cout << GREEN << _target << " has been pardoned by Zaphod Beeblebrox." << RESET << std::endl;
+    std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
+

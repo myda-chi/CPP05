@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:24:24 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/07 16:59:36 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:01:19 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name)
         throw GradeTooLowException();
     
     _grade = grade;
+    std::cout << CYAN << _name << RESET << " created." << std::endl;
 }
 
-Bureaucrat::Bureaucrat (const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
 {
     *this = other;
+    std::cout << CYAN << other._name << RESET << " copied." << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
@@ -40,6 +42,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
         
     this->_grade = other._grade;
     
+    std::cout << CYAN << other._name << RESET << " assigned." << std::endl;
     return *this;
 }
 
@@ -69,20 +72,25 @@ void Bureaucrat::decrementGrade()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return "TooHighException";
+    return RED "TooHighException" RESET;
 }
+
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return "TooLowException";
+    return RED "TooLowException" RESET;
 }
 
 Bureaucrat::~Bureaucrat()
 {
+    std::cout << CYAN << _name << RESET << " destroyed." << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
 {
-    os << other.getName() << ", bureaucrat grade " << other.getGrade() <<std::endl;
+    os << GREEN << other.getName() << RESET
+       << ", bureaucrat grade "
+       << YELLOW << other.getGrade() << RESET
+       << std::endl;
     return os;
 }
 
@@ -91,23 +99,29 @@ void Bureaucrat::executeForm(class AForm& form)
     try
     {
         form.execute(*this);
-        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+        std::cout << GREEN << this->getName() << RESET
+                  << " executed " << CYAN << form.getName() << RESET << std::endl;
     }
     catch (std::exception& e)
     {
-        std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+        std::cout << RED << this->getName() << RESET
+                  << " couldn't execute " << CYAN << form.getName() << RESET
+                  << " because " << RED << e.what() << RESET << std::endl;
     }
 }
+
 void Bureaucrat::signForm(class AForm& form)
 {
     try
     {
         form.beSigned(*this);
-        std::cout << this->getName() << " signed " << form.getName() << std::endl;
+        std::cout << GREEN << this->getName() << RESET
+                  << " signed " << CYAN << form.getName() << RESET << std::endl;
     }
     catch (std::exception& e)
     {
-        std::cout << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+        std::cout << RED << this->getName() << RESET
+                  << " couldn't sign " << CYAN << form.getName() << RESET
+                  << " because " << RED << e.what() << RESET << std::endl;
     }
 }
-

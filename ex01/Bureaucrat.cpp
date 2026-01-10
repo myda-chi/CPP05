@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:24:24 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/07 14:32:09 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:31:02 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name)
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat (const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
 {
     *this = other;
 }
@@ -69,11 +69,12 @@ void Bureaucrat::decrementGrade()
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return "TooHighException";
+    return RED "Grade too high!" RESET;
 }
+
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return "TooLowException";
+    return RED "Grade too low!" RESET;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -82,10 +83,25 @@ Bureaucrat::~Bureaucrat()
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
 {
-    os << other.getName() << ", bureaucrat grade " << other.getGrade() <<std::endl;
+    os << GREEN << other.getName() << RESET
+       << ", bureaucrat grade "
+       << YELLOW << other.getGrade() << RESET
+       << std::endl;
     return os;
 }
-void Bureaucrat:: signForm(Form& form)
+void Bureaucrat::signForm(Form& form)
 {
-    form.beSigned(*this);
+    try
+    {
+        form.beSigned(*this);
+        std::cout << GREEN << this->getName() << RESET
+                  << " signed " << CYAN << form.getName() << RESET << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << RED << this->getName() << RESET
+                  << " couldn't sign " << CYAN << form.getName() << RESET
+                  << " because " << e.what() << std::endl;
+    }
 }
+
