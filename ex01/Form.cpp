@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 13:38:28 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 14:52:56 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:27:29 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ void Form::beSigned(const Bureaucrat& bureaucrat)
     if (bureaucrat.getGrade() <= this->_gradeToSign)
     {
         this->_isSigned = true;
-        std::cout << GREEN << bureaucrat.getName() << RESET
-                  << " signed " << CYAN << this->_name << RESET << std::endl; 
     }
     else
     {

@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:21:00 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/07 16:27:28 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:22:03 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
     : AForm(other), _target(other._target)
 {
     std::cout << " Copy RobotomyRequestForm constructor called" << std::endl;
+    *this = other;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
     std::cout << " RobotomyRequestForm assignment operator called" << std::endl;
-    AForm::operator=(other);
+    if (this != &other)
+    {
+        this->_target = other._target;
+    }
     return *this;
 }
 

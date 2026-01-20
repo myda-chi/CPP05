@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 17:01:11 by myda-chi          #+#    #+#             */
+/*   Updated: 2026/01/20 15:42:02 by myda-chi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -14,7 +26,7 @@ int main()
         bob.signForm(taxForm);
         std::cout << taxForm << std::endl;
 
-        Bureaucrat alice("Alice", 10);
+        Bureaucrat alice("Alice", 30);
         alice.signForm(taxForm);
         std::cout << taxForm << std::endl;
     }

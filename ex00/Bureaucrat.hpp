@@ -11,6 +11,8 @@
 #define YELLOW "\033[33m"
 #define RESET "\033[0m"
 
+
+
 class Bureaucrat
 {
 private:

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 17:02:14 by myda-chi          #+#    #+#             */
+/*   Updated: 2026/01/12 18:39:27 by myda-chi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
@@ -11,7 +23,7 @@ int main() {
 		AForm* ppf;
 		AForm* scf;
 		Intern someRandomIntern;
-		Bureaucrat	a("munia", 25);
+		Bureaucrat	a("munia", 20);
 		ppf = someRandomIntern.makeForm("presidential pardon", "Bender");
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		scf = someRandomIntern.makeForm("shrubbery creation", "Bender");

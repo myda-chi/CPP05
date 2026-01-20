@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:17:34 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 15:03:47 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:12:10 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& oth
     : AForm(other), _target(other._target)
 {
     std::cout << GREEN << " Copy PresidentialPardonForm constructor called" << RESET << std::endl;
+    *this = other;
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
     std::cout << GREEN << " PresidentialPardonForm assignment operator called" << RESET << std::endl;
-    AForm::operator=(other);
+    if (this != &other)
+    {
+        this->_target = other._target;
+    }
     return *this;
 }
 

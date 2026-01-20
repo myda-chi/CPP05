@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:30:49 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/07 16:35:50 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/20 16:36:14 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int main()
 {
-    Bureaucrat bob("Bob", 1);
-    AForm* yda = new ShrubberyCreationForm("Home");
+    Bureaucrat bob("Bob", 150);
+    AForm* yda = new ShrubberyCreationForm("yda");
     AForm* ydaa = new RobotomyRequestForm("Bender");
     AForm* ydaaa = new PresidentialPardonForm("Marvin");
     bob.signForm(*yda);

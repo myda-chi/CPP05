@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:24:24 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/10 15:21:02 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:02:34 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-    this->_grade++;
-    if (this->_grade > low)
-        throw Bureaucrat::GradeTooLowException();
+    this->_grade--;
+    if (this->_grade < high)
+        throw Bureaucrat::GradeTooHighException();
 }
 
 void Bureaucrat::decrementGrade()
 {
-    this->_grade--;
-    if (this->_grade < high)
-        throw Bureaucrat::GradeTooHighException();
+    this->_grade++;
+    if (this->_grade > low)
+        throw Bureaucrat::GradeTooLowException();
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
@@ -77,7 +77,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
     return RED "Grade too low!" RESET;
 }
 
-rm -f Bureaucrat
 Bureaucrat::~Bureaucrat()
 {
 }
@@ -90,5 +89,3 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
        << std::endl;
     return os;
 }
-
-rm -f Bureaucrat

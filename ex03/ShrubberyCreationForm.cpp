@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:28:27 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/07 16:29:05 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/20 17:22:56 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,16 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
     : AForm(other), _target(other._target)
 {
     std::cout << " Copy ShrubberyCreationForm constructor called" << std::endl;
+    *this = other;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
     std::cout << " ShrubberyCreationForm assignment operator called" << std::endl;
-    AForm::operator=(other);
+    if (this != &other)
+    {
+        this->_target = other._target;
+    }
     return *this;
 }
 
@@ -56,15 +60,14 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
         return;
     }
     
-    outfile << "       _-_" << std::endl;
-    outfile << "    /~~   ~~\\" << std::endl;
-    outfile << " /~~         ~~\\" << std::endl;
-    outfile << "{               }" << std::endl;
-    outfile << " \\  _-     -_  /" << std::endl;
-    outfile << "   ~  \\\\ //  ~" << std::endl;
-    outfile << "_- -   | | _- _" << std::endl;
-    outfile << "  _ -  | |   -_" << std::endl;
-    outfile << "      // \\\\" << std::endl;
+outfile << "    *" << std::endl
+        << "   ***" << std::endl
+        << "  *****" << std::endl
+        << " *******" << std::endl
+        << "*********" << std::endl
+        << "    |" << std::endl
+        << "    |" << std::endl;
+
     
     outfile.close();
     std::cout << "Shrubbery created in file: " << filename << std::endl;

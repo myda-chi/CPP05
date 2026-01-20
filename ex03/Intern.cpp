@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/12 17:01:53 by myda-chi          #+#    #+#             */
+/*   Updated: 2026/01/20 17:29:56 by myda-chi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 
 Intern::Intern() 
@@ -35,9 +47,15 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target)
         i++;
 
     switch(i) {
-        case 0: std::cout <<GREEN "Intern creates ShrubberyCreationForm\n" << RESET; return new ShrubberyCreationForm(target);
-        case 1: std::cout <<GREEN "Intern creates RobotomyRequestForm\n" << RESET; return new RobotomyRequestForm(target);
-        case 2: std::cout <<GREEN "Intern creates PresidentialPardonForm\n" << RESET; return new PresidentialPardonForm(target);
+        case 0: 
+            std::cout <<GREEN "Intern creates ShrubberyCreationForm\n" << RESET; 
+            return new ShrubberyCreationForm(target);
+        case 1: 
+            std::cout <<GREEN "Intern creates RobotomyRequestForm\n" << RESET; 
+            return new RobotomyRequestForm(target);
+        case 2: 
+            std::cout <<GREEN "Intern creates PresidentialPardonForm\n" << RESET; 
+            return new PresidentialPardonForm(target);
         default:
             std::cout <<RED "Intern could not create \"" << name << "\"\n" << RESET;
             return NULL;
