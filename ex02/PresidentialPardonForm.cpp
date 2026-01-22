@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:17:34 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/20 17:12:10 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:12:27 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,25 @@ PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm"
 {
     std::cout << GREEN << " Default PresidentialPardonForm constructor called" << RESET << std::endl;
 }
+
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
     : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
     std::cout << GREEN << " Parameterized PresidentialPardonForm constructor called" << RESET << std::endl;
 }
+
 PresidentialPardonForm::~PresidentialPardonForm()
 {
     std::cout << GREEN << " PresidentialPardonForm destructor called" << RESET << std::endl;
 }
+
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
     : AForm(other), _target(other._target)
 {
     std::cout << GREEN << " Copy PresidentialPardonForm constructor called" << RESET << std::endl;
     *this = other;
 }
+
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
     std::cout << GREEN << " PresidentialPardonForm assignment operator called" << RESET << std::endl;
@@ -40,6 +44,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
     }
     return *this;
 }
+
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {

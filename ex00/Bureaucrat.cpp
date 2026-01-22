@@ -6,7 +6,7 @@
 /*   By: myda-chi <myda-chi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 12:24:24 by myda-chi          #+#    #+#             */
-/*   Updated: 2026/01/20 15:02:34 by myda-chi         ###   ########.fr       */
+/*   Updated: 2026/01/22 11:07:06 by myda-chi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,6 @@ Bureaucrat::~Bureaucrat()
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& other)
 {
-    os << GREEN << other.getName() << RESET
-       << ", bureaucrat grade "
-       << YELLOW << other.getGrade() << RESET
-       << std::endl;
+    os << GREEN << other.getName() << RESET<< ", bureaucrat grade " << YELLOW << other.getGrade() << RESET<< std::endl;
     return os;
 }
